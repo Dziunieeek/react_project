@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
-import Toggle from '../Toggle/Toggle.js';
 
-import "./App.css";
+import Toggle from "../../components/Toggle/Toggle.js";
 
-class App extends Component {
+import Icon from "@material-ui/core/Icon";
+
+import "./Home.css";
+
+
+class Home extends Component {
 
 	constructor(props) {
 		super(props);
@@ -29,7 +33,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div>
 				<h1>Hello, World!</h1>
 				<h2>It is {this.state.date.toLocaleTimeString()}</h2>
 				Toggle button: <Toggle />
@@ -38,4 +42,4 @@ class App extends Component {
 	}
 }
 
-export default hot(module)(App);
+export default hot(module)(Home);
