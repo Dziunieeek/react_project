@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home.js";
 import About from "../pages/About/About.js";
 
 import NavBar from "../components/NavBar/NavBar.js";
+import Footer from "../components/Footer/Footer.js";
 
 import "../styles/App.css";
 
@@ -20,6 +21,8 @@ class App extends Component {
 						<Route exact path="/" component={Home} />
 						<Route path="/about" component={About} />
 					</div>
+
+					<Footer />
 				</div>
 			</BrowserRouter>
 		);
