@@ -17,31 +17,37 @@ class Footer extends Component {
 					<div className="menu">
 						<h3>Category 1</h3>
 						<ul>
-							<li>One</li>
-							<li>Two</li>
-							<li>Three</li>
+							<li><a href="#">One</a></li>
+							<li><a href="#">Two</a></li>
+							<li><a href="#">Three</a></li>
 						</ul>
 					</div>
 					<div className="menu">
 						<h3>Category 2</h3>
 						<ul>
-							<li>One</li>
-							<li>Two</li>
-							<li>Three</li>
+							<li><a href="#">One</a></li>
+							<li><a href="#">Two</a></li>
+							<li><a href="#">Three</a></li>
 						</ul>
 					</div>
 					<div className="menu">
 						<h3>Category 3</h3>
 						<ul>
-							<li>One</li>
-							<li>Two</li>
-							<li>Three</li>
+							<li><a href="#">One</a></li>
+							<li><a href="#">Two</a></li>
+							<li><a href="#">Three</a></li>
 						</ul>
 					</div>
 
 					<div className="menu">
-						<h3>Social</h3>
-						<span>bla bla</span>
+						<h3>Social Media</h3>
+						<div className="social-media-container">
+							<a href="#" className="fa fa-facebook"></a>
+							<a href="#" className="fa fa-twitter"></a>
+							<a href="#" className="fa fa-google"></a>
+							<a href="#" className="fa fa-linkedin"></a>
+							<a href="#" className="fa fa-youtube"></a>
+						</div>
 					</div>
 					
 				</div>

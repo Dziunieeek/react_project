@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
+import { Link } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
@@ -8,6 +9,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
+
+import './AccountMenu.css';
 
 class AccountMenu extends Component {
 
@@ -43,8 +46,7 @@ class AccountMenu extends Component {
 			</IconButton>
 						
         	<Menu id="account-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose}>
-				<MenuItem onClick={this.handleClose}>My account</MenuItem>
-          		<MenuItem onClick={this.handleClose}>Logout</MenuItem>
+				<MenuItem onClick={this.handleClose}><Link to="/login">Login</Link></MenuItem>
        		</Menu>
       </div>
     );
