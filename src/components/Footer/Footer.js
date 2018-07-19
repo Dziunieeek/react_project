@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { hot } from "react-hot-loader";
 
 import "./Footer.css";
-
 
 class Footer extends Component {
 
@@ -61,5 +59,5 @@ class Footer extends Component {
 
 }
 
-export default hot(module)(Footer);
+export default Footer;
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { hot } from "react-hot-loader";
 import { Link } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
@@ -9,6 +8,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
+
+import { firebaseApp } from '../../firebase';
 
 import './AccountMenu.css';
 
@@ -20,37 +21,41 @@ class AccountMenu extends Component {
 		this.state = {
 			anchorEl: null,
 		};
-
-		this.handleClick = this.handleClick.bind(this);
-		this.handleClose = this.handleClose.bind(this);
 	}
-  
 
-  handleClick(event) {
-	this.setState({ anchorEl: event.currentTarget });
-  }
 
-  handleClose(){
-    this.setState({ anchorEl: null });
-  };
+	handleClick(e) {
+		this.setState({ anchorEl: e.currentTarget });
+	}
 
-  render() {
-    const { anchorEl } = this.state;
+	logOut() {
+		firebaseApp.auth().signOut();
+		this.handleClose();
+	}
 
-    return (
-		<div>
-			<IconButton onClick={this.handleClick}>
-				<Tooltip title="Account">
-					<Icon className="icon">account_circle</Icon>
-				</Tooltip>
-			</IconButton>
-						
-        	<Menu id="account-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose}>
-				<MenuItem onClick={this.handleClose}><Link to="/login">Login</Link></MenuItem>
-       		</Menu>
-      </div>
-    );
-  }
+	handleClose() {
+		this.setState({ anchorEl: null });
+	};
+
+	render() {
+		const { anchorEl } = this.state;
+
+		return (
+			<div>
+				<IconButton onClick={(e) => this.handleClick(e)}>
+					<Tooltip title="Account">
+						<Icon className="icon">account_circle</Icon>
+					</Tooltip>
+				</IconButton>
+
+				<Menu id="account-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => this.handleClose()}>
+					<MenuItem onClick={() => this.handleClose()}><Link to="/register">Register</Link></MenuItem>
+					<MenuItem onClick={() => this.handleClose()}><Link to="/login">Log in</Link></MenuItem>
+					<MenuItem onClick={() => this.logOut()}>Log out</MenuItem>
+				</Menu>
+			</div>
+		);
+	}
 }
 
-export default hot(module)(AccountMenu);
+export default AccountMenu;

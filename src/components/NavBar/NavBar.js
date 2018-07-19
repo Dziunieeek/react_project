@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { hot } from "react-hot-loader";
 import { Link } from "react-router-dom";
 
 import Icon from "@material-ui/core/Icon";
@@ -55,5 +54,5 @@ class NavBar extends Component {
 
 }
 
-export default hot(module)(NavBar);
+export default NavBar;
 
