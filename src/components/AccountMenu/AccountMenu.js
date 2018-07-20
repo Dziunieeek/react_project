@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -50,13 +50,26 @@ class AccountMenu extends Component {
 				</IconButton>
 
 				<Menu id="account-menu" styleName="menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => this.handleClose()}>
-					<MenuItem onClick={() => this.handleClose()}><Link to="/register">Register</Link></MenuItem>
-					<MenuItem onClick={() => this.handleClose()}><Link to="/login">Log in</Link></MenuItem>
-					<MenuItem onClick={() => this.logOut()}>Log out</MenuItem>
+					{!this.props.user.email ? (
+						<div styleName="menu-item-container">
+							<Link to="/register"><MenuItem onClick={() => this.handleClose()}>Register</MenuItem></Link>
+							<Link to="/login"><MenuItem onClick={() => this.handleClose()}>Log in</MenuItem></Link>
+						</div>
+					) : (
+						<MenuItem onClick={() => this.logOut()}>Log out</MenuItem>
+					)}
 				</Menu>
 			</div>
 		);
 	}
 }
 
-export default CSSModules(AccountMenu, styles);
+function mapStateToProps(state) {
+	const { user } = state;
+	return {
+		user
+	};
+}
+
+const AccountMenuWithStyles = CSSModules(AccountMenu, styles);
+export default connect(mapStateToProps, null)(AccountMenuWithStyles);

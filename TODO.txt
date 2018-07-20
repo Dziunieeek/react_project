@@ -1,6 +1,5 @@
 TODO:
-- AccountMenuButton - hide links based on authentication status
-- pages - block access based on authentication status
-- AccountMenuButton - extend link to whole button space
 - move register/login to popups
 - add types of user: e.g. Admin
+- use material-ui form elements to Register/Login
+- move routers path to constant/routes.js

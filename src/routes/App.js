@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
-import { HashRouter , Route } from "react-router-dom";
+import { HashRouter , Route, Redirect } from "react-router-dom";
 import { firebaseApp } from '../firebase';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { connect } from "react-redux";
 
 import Home from "../pages/Home/Home.js";
 import About from "../pages/About/About.js";
@@ -32,9 +33,10 @@ class App extends Component {
 		firebaseApp.auth().onAuthStateChanged(user => {
 			if (user) {
 				const { email } = user;
-				this.store.dispatch(logUser(email))
+				this.store.dispatch(logUser(email));
 				this.router.current.history.push('/secret');
 			} else {
+				this.store.dispatch(logUser(null));
 				this.router.current.history.replace('/');
 			}
 		});
@@ -43,16 +45,22 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={this.store}>
-				<HashRouter  ref={this.router} >
+				<HashRouter ref={this.router} >
 					<div styleName="content">
 						<NavBar />
-
+						
 						<div styleName="container">
 							<Route exact path="/" component={Home} />
 							<Route path="/about" component={About} />
 							<Route path="/login" component={Login} />
 							<Route path="/register" component={Register} />
-							<Route path="/secret" component={Secret} />
+							<Route path="/secret" render={() => (
+								!this.store.getState().user.email ? (
+									<Redirect to="/login" />
+								) : (
+									<Secret />
+								)
+							 )} />
 						</div>
 
 						<Footer />
