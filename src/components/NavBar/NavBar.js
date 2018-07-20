@@ -13,7 +13,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import AccountMenu from "../AccountMenu/AccountMenu.js";
 
-import "./NavBar.css";
+import CSSModules from 'react-css-modules';
+import styles from "./NavBar.scss";
 
 
 class NavBar extends Component {
@@ -24,14 +25,14 @@ class NavBar extends Component {
 
 	render() {
 		return (
-			<div className="nav-bar">
+			<div styleName="nav-bar">
 				<AppBar position="static">
 					<Toolbar>
-						<Typography variant="title" className="title" color="inherit">My React App</Typography>
+						<Typography variant="title" styleName="title" color="inherit">My React App</Typography>
 							<IconButton>
 								<Tooltip title="Home">
 									<Link to="/">
-										<Icon className="icon">home</Icon>
+										<Icon styleName="icon">home</Icon>
 									</Link>
 								</Tooltip>
 							</IconButton>
@@ -39,7 +40,7 @@ class NavBar extends Component {
 							<IconButton>
 								<Tooltip title="About">
 									<Link to="/about">
-										<Icon className="icon">info</Icon>
+										<Icon styleName="icon">info</Icon>
 									</Link>
 								</Tooltip>
 							</IconButton>
@@ -54,5 +55,5 @@ class NavBar extends Component {
 
 }
 
-export default NavBar;
+export default CSSModules(NavBar, styles);
 

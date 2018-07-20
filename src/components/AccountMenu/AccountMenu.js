@@ -11,7 +11,8 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { firebaseApp } from '../../firebase';
 
-import './AccountMenu.css';
+import CSSModules from 'react-css-modules';
+import styles from './AccountMenu.scss';
 
 class AccountMenu extends Component {
 
@@ -42,13 +43,13 @@ class AccountMenu extends Component {
 
 		return (
 			<div>
-				<IconButton onClick={(e) => this.handleClick(e)}>
+				<IconButton styleName="button" onClick={(e) => this.handleClick(e)}>
 					<Tooltip title="Account">
-						<Icon className="icon">account_circle</Icon>
+						<Icon styleName="icon">account_circle</Icon>
 					</Tooltip>
 				</IconButton>
 
-				<Menu id="account-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => this.handleClose()}>
+				<Menu id="account-menu" styleName="menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => this.handleClose()}>
 					<MenuItem onClick={() => this.handleClose()}><Link to="/register">Register</Link></MenuItem>
 					<MenuItem onClick={() => this.handleClose()}><Link to="/login">Log in</Link></MenuItem>
 					<MenuItem onClick={() => this.logOut()}>Log out</MenuItem>
@@ -58,4 +59,4 @@ class AccountMenu extends Component {
 	}
 }
 
-export default AccountMenu;
+export default CSSModules(AccountMenu, styles);

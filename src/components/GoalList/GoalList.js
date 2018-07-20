@@ -7,6 +7,9 @@ import { setGoals } from '../../actions';
 
 import GoalItem from '../GoalItem/GoalItem';
 
+import CSSModules from 'react-css-modules';
+import styles from './GoalList.scss';
+
 class GoalList extends Component {
 
 	componentDidMount() {
@@ -43,4 +46,5 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, { setGoals })(GoalList);
+const GoalListWithStyles = CSSModules(GoalList, styles);
+export default connect(mapStateToProps, { setGoals })(GoalListWithStyles);

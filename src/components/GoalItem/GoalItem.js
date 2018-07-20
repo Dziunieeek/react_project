@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import { completedGoalRef, goalRef } from '../../firebase';
 
+import CSSModules from 'react-css-modules';
+import styles from './GoalItem.scss';
+
 class GoalItem extends Component {
 
 	completeGoal() {
@@ -33,4 +36,5 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, null)(GoalItem);
+const GoalItemWithStyles = CSSModules(GoalItem, styles);
+export default connect(mapStateToProps, null)(GoalItemWithStyles);

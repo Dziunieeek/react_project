@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { goalRef } from '../../firebase';
 
-import './AddGoal.css';
+import CSSModules from 'react-css-modules';
+import styles from './AddGoal.scss';
 
 class AddGoal extends Component {
 	constructor(props) {
@@ -21,7 +22,7 @@ class AddGoal extends Component {
 	render() {
 		return (
 			<div>
-				<input type="text" placeholder="Add a goal" onChange={ event => this.setState({title: event.target.value })}/>
+				<input type="text" styleName="input" placeholder="Add a goal" onChange={ event => this.setState({title: event.target.value })}/>
 				<button onClick={() => this.addGoal()}>Submit</button>
 			</div>
 		);
@@ -35,4 +36,5 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, null)(AddGoal);
+const AddGoalWithStyles = CSSModules(AddGoal, styles);
+export default connect(mapStateToProps, null)(AddGoalWithStyles);

@@ -5,7 +5,8 @@ import AddGoal from '../../components/AddGoal/AddGoal';
 import GoalList from '../../components/GoalList/GoalList';
 import CompletedGoalList from '../../components/CompletedGoalList/CompletedGoalList';
 
-import "./Secret.css";
+import CSSModules from 'react-css-modules';
+import styles from "./Secret.scss";
 
 class Secret extends Component {
 
@@ -32,4 +33,5 @@ function mapStateToProps(state) {
 	return {};
 }
 
-export default connect(mapStateToProps, null)(Secret);
+const SecretWithStyles = CSSModules(Secret, styles);
+export default connect(mapStateToProps, null)(SecretWithStyles);

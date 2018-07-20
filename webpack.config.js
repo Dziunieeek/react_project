@@ -13,9 +13,20 @@ module.exports = {
         options: { presets: ['env'] }
       },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-      }
+		test: /\.css$/,
+        use: [ 
+			'style-loader?sourceMap',
+			'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"'
+		]
+      },
+	  {
+		test: /\.scss$/,
+		use: [
+			'style-loader?sourceMap',
+			'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"',
+			'sass-loader'
+		]
+	  }
     ]
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },

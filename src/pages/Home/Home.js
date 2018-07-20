@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 import Icon from "@material-ui/core/Icon";
 
-import "./Home.css";
+import CSSModules from 'react-css-modules';
+import styles from "./Home.scss";
 
 
 class Home extends Component {
@@ -38,4 +39,4 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+export default CSSModules(Home, styles);

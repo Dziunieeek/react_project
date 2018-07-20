@@ -18,7 +18,8 @@ import Footer from "../components/Footer/Footer.js";
 import reducer from '../reducers';
 import { logUser } from '../actions';
 
-import "../styles/App.css";
+import CSSModules from 'react-css-modules';
+import styles from "../styles/App.scss";
 
 class App extends Component {
 
@@ -43,10 +44,10 @@ class App extends Component {
 		return (
 			<Provider store={this.store}>
 				<BrowserRouter ref={this.router} >
-					<div className="content">
+					<div styleName="content">
 						<NavBar />
 
-						<div className="container">
+						<div styleName="container">
 							<Route exact path="/" component={Home} />
 							<Route path="/about" component={About} />
 							<Route path="/login" component={Login} />
@@ -62,4 +63,5 @@ class App extends Component {
 	}
 }
 
-export default hot(module)(App);
+const AppWithStyles = CSSModules(App, styles);
+export default hot(module)(AppWithStyles);

@@ -5,6 +5,8 @@ import { setCompletedGoals } from '../../actions';
 
 import { completedGoalRef } from '../../firebase';
 
+import CSSModules from 'react-css-modules';
+import styles from './CompletedGoalList.scss';
 
 class CompletedGoalList extends Component {
 
@@ -49,4 +51,5 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, { setCompletedGoals })(CompletedGoalList);
+const CompletedGoalListWithStyles = CSSModules(CompletedGoalList, styles);
+export default connect(mapStateToProps, { setCompletedGoals })(CompletedGoalListWithStyles);

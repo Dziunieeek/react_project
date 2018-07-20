@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import "./Footer.css";
+import CSSModules from 'react-css-modules';
+import styles from "./Footer.scss";
 
 class Footer extends Component {
 
@@ -10,48 +11,48 @@ class Footer extends Component {
 
 	render() {
 		return (
-			<div className="footer">
-				<div className="menus">
-					<div className="menu">
+			<div styleName="footer">
+				<div styleName="menus">
+					<div styleName="menu">
 						<h3>Category 1</h3>
 						<ul>
-							<li><a href="#">One</a></li>
-							<li><a href="#">Two</a></li>
-							<li><a href="#">Three</a></li>
+							<li><a styleName="link" href="#">One</a></li>
+							<li><a styleName="link" href="#">Two</a></li>
+							<li><a styleName="link" href="#">Three</a></li>
 						</ul>
 					</div>
-					<div className="menu">
+					<div styleName="menu">
 						<h3>Category 2</h3>
 						<ul>
-							<li><a href="#">One</a></li>
-							<li><a href="#">Two</a></li>
-							<li><a href="#">Three</a></li>
+							<li><a styleName="link" href="#">One</a></li>
+							<li><a styleName="link" href="#">Two</a></li>
+							<li><a styleName="link" href="#">Three</a></li>
 						</ul>
 					</div>
-					<div className="menu">
+					<div styleName="menu">
 						<h3>Category 3</h3>
 						<ul>
-							<li><a href="#">One</a></li>
-							<li><a href="#">Two</a></li>
-							<li><a href="#">Three</a></li>
+							<li><a styleName="link" href="#">One</a></li>
+							<li><a styleName="link" href="#">Two</a></li>
+							<li><a styleName="link" href="#">Three</a></li>
 						</ul>
 					</div>
 
-					<div className="menu">
+					<div styleName="menu">
 						<h3>Social Media</h3>
-						<div className="social-media-container">
-							<a href="#" className="fa fa-facebook"></a>
-							<a href="#" className="fa fa-twitter"></a>
-							<a href="#" className="fa fa-google"></a>
-							<a href="#" className="fa fa-linkedin"></a>
-							<a href="#" className="fa fa-youtube"></a>
+						<div styleName="social-media-container">
+							<a href="#" className="fa fa-facebook" styleName="fa-facebook"></a>
+							<a href="#" className="fa fa-twitter" styleName="fa-twitter"></a>
+							<a href="#" className="fa fa-google" styleName="fa-google"></a>
+							<a href="#" className="fa fa-linkedin" styleName="fa-linkedin"></a>
+							<a href="#" className="fa fa-youtube" styleName="fa-youtube"></a>
 						</div>
 					</div>
 					
 				</div>
-				<div className="copyrights"> 
-					<span className="left">(C) 2018 Dziunieeek </span>
-					<span className="right">Powered by React</span>
+				<div styleName="copyrights"> 
+					<span styleName="left">(C) 2018 Dziunieeek </span>
+					<span styleName="right">Powered by React</span>
 				</div>
 			</div>
 		);
@@ -59,5 +60,5 @@ class Footer extends Component {
 
 }
 
-export default Footer;
+export default CSSModules(Footer, styles);
 

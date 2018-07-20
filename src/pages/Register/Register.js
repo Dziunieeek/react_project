@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { firebaseApp } from '../../firebase';
 
-import "./Register.css";
+import CSSModules from 'react-css-modules';
+import styles from "./Register.scss";
 
 class Register extends Component {
 
@@ -26,14 +27,14 @@ class Register extends Component {
 
 	render() {
 		return (
-			<div className="form">
-				<div className="error-msg">{this.state.error.message}</div>
-				<input type="text" className="input" placeholder="email" onChange={event => this.setState({ email: event.target.value })} />
-				<input type="password" className="input" placeholder="password" onChange={event => this.setState({ password: event.target.value })} />
-				<button className="button" onClick={() => this.signUp()}>Sign up</button>
+			<div styleName="form">
+				<div styleName="error-msg">{this.state.error.message}</div>
+				<input type="text" styleName="input" placeholder="email" onChange={event => this.setState({ email: event.target.value })} />
+				<input type="password" styleName="input" placeholder="password" onChange={event => this.setState({ password: event.target.value })} />
+				<button styleName="button" onClick={() => this.signUp()}>Sign up</button>
 			</div>
 		);
 	}
 }
 
-export default Register;
+export default CSSModules(Register, styles);
