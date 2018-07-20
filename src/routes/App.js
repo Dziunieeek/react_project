@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter , Route } from "react-router-dom";
 import { firebaseApp } from '../firebase';
 
 import { createStore } from 'redux';
@@ -43,7 +43,7 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={this.store}>
-				<BrowserRouter ref={this.router} >
+				<HashRouter  ref={this.router} >
 					<div styleName="content">
 						<NavBar />
 
@@ -57,7 +57,7 @@ class App extends Component {
 
 						<Footer />
 					</div>
-				</BrowserRouter>
+				</HashRouter >
 			</Provider>
 		);
 	}

@@ -18,12 +18,16 @@ class Secret extends Component {
 				<h4>Add goal:</h4>
 				<AddGoal />
 
-				<h4>Goals list:</h4>
-				<GoalList />
-
-				<h4>Completed Goal List:</h4>
-				<CompletedGoalList />
-
+				<div styleName="container">
+					<div styleName="column">
+						<h4>Goals list:</h4>
+						<GoalList />
+					</div>
+					<div styleName="column">
+						<h4>Completed Goal List:</h4>
+						<CompletedGoalList />
+					</div>
+				</div>
 			</div>
 		);
 	}
