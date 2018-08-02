@@ -16,10 +16,12 @@ import Footer from "../components/Footer/Footer.js";
 import reducer from '../reducers';
 import { logUser } from '../actions';
 
-import CSSModules from 'react-css-modules';
-import styles from "../styles/App.scss";
+import * as ROUTES from '../constants/routes.js';
 
-class App extends Component {
+import CSSModules from 'react-css-modules';
+import styles from "../styles/Main.scss";
+
+class Main extends Component {
 
 	constructor(props) {
 		super(props);
@@ -31,10 +33,10 @@ class App extends Component {
 			if (user) {
 				const { email } = user;
 				this.store.dispatch(logUser(email));
-				this.router.current.history.push('/secret');
+				this.router.current.history.push(ROUTES.SECRET);
 			} else {
 				this.store.dispatch(logUser(null));
-				this.router.current.history.replace('/');
+				this.router.current.history.replace(ROUTES.HOME);
 			}
 		});
 	}
@@ -47,11 +49,11 @@ class App extends Component {
 						<NavBar />
 						
 						<div styleName="container">
-							<Route exact path="/" component={Home} />
-							<Route path="/about" component={About} />
-							<Route path="/secret" render={() => (
+							<Route exact path={ROUTES.HOME} component={Home} />
+							<Route path={ROUTES.ABOUT} component={About} />
+							<Route path={ROUTES.SECRET} render={() => (
 								!this.store.getState().user.email ? (
-									<Redirect to="/" />
+									<Redirect to={ROUTES.HOME} />
 								) : (
 									<Secret />
 								)
@@ -66,5 +68,5 @@ class App extends Component {
 	}
 }
 
-const AppWithStyles = CSSModules(App, styles);
-export default hot(module)(AppWithStyles);
+const MainWithStyles = CSSModules(Main, styles);
+export default hot(module)(MainWithStyles);
