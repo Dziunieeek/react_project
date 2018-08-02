@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import Menu from "@material-ui/core/Menu";
@@ -10,6 +9,9 @@ import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 
 import { firebaseApp } from '../../firebase';
+
+import Login from "../Login/Login.js";
+import Register from "../Register/Register.js";
 
 import CSSModules from 'react-css-modules';
 import styles from './AccountMenu.scss';
@@ -22,6 +24,9 @@ class AccountMenu extends Component {
 		this.state = {
 			anchorEl: null,
 		};
+
+		this.registerRef = React.createRef();
+		this.loginRef = React.createRef();
 	}
 
 
@@ -31,6 +36,16 @@ class AccountMenu extends Component {
 
 	logOut() {
 		firebaseApp.auth().signOut();
+		this.handleClose();
+	}
+
+	logIn() {
+		this.loginRef.current.open();
+		this.handleClose();
+	}
+
+	register() {
+		this.registerRef.current.open();
 		this.handleClose();
 	}
 
@@ -52,13 +67,16 @@ class AccountMenu extends Component {
 				<Menu id="account-menu" styleName="menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => this.handleClose()}>
 					{!this.props.user.email ? (
 						<div styleName="menu-item-container">
-							<Link to="/register"><MenuItem onClick={() => this.handleClose()}>Register</MenuItem></Link>
-							<Link to="/login"><MenuItem onClick={() => this.handleClose()}>Log in</MenuItem></Link>
+							<MenuItem onClick={() => this.register()}>Register</MenuItem>
+							<MenuItem onClick={() => this.logIn()}>Log in</MenuItem>
 						</div>
 					) : (
 						<MenuItem onClick={() => this.logOut()}>Log out</MenuItem>
 					)}
 				</Menu>
+
+				<Login ref={this.loginRef} />
+				<Register ref={this.registerRef} />
 			</div>
 		);
 	}

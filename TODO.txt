@@ -1,5 +1,4 @@
 TODO:
-- move register/login to popups
 - add types of user: e.g. Admin
 - use material-ui form elements to Register/Login
 - move routers path to constant/routes.js

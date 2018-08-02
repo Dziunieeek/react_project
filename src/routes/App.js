@@ -5,12 +5,9 @@ import { firebaseApp } from '../firebase';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { connect } from "react-redux";
 
 import Home from "../pages/Home/Home.js";
 import About from "../pages/About/About.js";
-import Login from "../pages/Login/Login.js";
-import Register from "../pages/Register/Register.js";
 import Secret from "../pages/Secret/Secret.js";
 
 import NavBar from "../components/NavBar/NavBar.js";
@@ -52,17 +49,15 @@ class App extends Component {
 						<div styleName="container">
 							<Route exact path="/" component={Home} />
 							<Route path="/about" component={About} />
-							<Route path="/login" component={Login} />
-							<Route path="/register" component={Register} />
 							<Route path="/secret" render={() => (
 								!this.store.getState().user.email ? (
-									<Redirect to="/login" />
+									<Redirect to="/" />
 								) : (
 									<Secret />
 								)
 							 )} />
 						</div>
-
+						
 						<Footer />
 					</div>
 				</HashRouter >
