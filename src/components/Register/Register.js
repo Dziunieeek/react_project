@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { firebaseApp } from '../../firebase';
+import { db, firebaseApp } from '../../firebase';
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -36,12 +36,19 @@ class Register extends Component {
 	signUp() {
 		const { email, password } = this.state;
 		firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-			.then(() => {
+			.then((auth) => {
+				this.createUserDataInDB(auth.user.uid);
 				this.handleClose();
 			})
 			.catch(error => {
 				this.setState({ error });
 			});
+	}
+
+	createUserDataInDB(uid) {
+		db.ref('users/' + uid).set({
+			role: 'USER'
+		});
 	}
 
 	render() {

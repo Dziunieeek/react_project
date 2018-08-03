@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import { connect } from 'react-redux';
+
 import Icon from "@material-ui/core/Icon";
 import IconButton from '@material-ui/core/IconButton';
 
@@ -13,6 +15,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import AccountMenu from "../AccountMenu/AccountMenu.js";
 
 import * as ROUTES from '../../constants/routes.js';
+import { USER_ROLES } from '../../constants/constants.js';
 
 import CSSModules from 'react-css-modules';
 import styles from "./NavBar.scss";
@@ -45,6 +48,27 @@ class NavBar extends Component {
 									</Link>
 								</Tooltip>
 							</IconButton>
+
+							{(this.props.user.email) ? (
+								<IconButton>
+									<Tooltip title="Secret">
+										<Link to={ROUTES.SECRET}>
+											<Icon styleName="icon">security</Icon>
+										</Link>
+									</Tooltip>
+								</IconButton>
+							) : ''}
+							
+
+							{(this.props.user.role === USER_ROLES.ADMIN) ? (
+								<IconButton>
+									<Tooltip title="Admin panel">
+										<Link to={ROUTES.ADMIN_PANEL}>
+											<Icon styleName="icon">dvr</Icon>
+										</Link>
+									</Tooltip>
+								</IconButton>
+							) : ''}
 			
 						<AccountMenu />
 						
@@ -53,8 +77,14 @@ class NavBar extends Component {
 			</div>
 		);
 	}
-
 }
 
-export default CSSModules(NavBar, styles);
+function mapStateToProps(state) {
+	const { user } = state;
+	return {
+		user
+	};
+}
 
+const NavBarWithStyles = CSSModules(NavBar, styles);
+export default connect(mapStateToProps, null)(NavBarWithStyles);

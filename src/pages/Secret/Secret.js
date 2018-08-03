@@ -13,8 +13,9 @@ class Secret extends Component {
 	render() {
 		return (
 			<div>
-				<h3 style={{color: 'red'}}>This is secret page!</h3>
-
+				<h3 style={{color: 'red'}}>This is secret page - only for logged-in users !</h3>
+				<h4>Your email: {this.props.user.email}</h4>
+				
 				<h4>Add goal:</h4>
 				<AddGoal />
 
@@ -34,7 +35,10 @@ class Secret extends Component {
 }
 
 function mapStateToProps(state) {
-	return {};
+	const { user } = state;
+	return {
+		user
+	};
 }
 
 const SecretWithStyles = CSSModules(Secret, styles);
