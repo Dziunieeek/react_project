@@ -8,6 +8,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 
+import * as Resources from "../Resources/Resources.js";
+import * as Production from "../Production/Production.js";
+
 import CSSModules from 'react-css-modules';
 import styles from "./Register.scss";
 
@@ -49,6 +52,8 @@ class Register extends Component {
 		db.ref('users/' + uid).set({
 			role: 'USER'
 		});
+		Resources.createResources(uid);
+		Production.createProduction(uid);
 	}
 
 	render() {

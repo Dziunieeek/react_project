@@ -1,2 +1,4 @@
 TODO:
-- add types of user: e.g. Admin
+
+- clean structure of components
+- remove unused elements

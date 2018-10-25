@@ -36,7 +36,7 @@ class Main extends Component {
 				const { uid, email } = user;
 				db.ref('/users/' + uid).once('value').then((snapshot) =>{
 					const role = (snapshot.val() && snapshot.val().role ) || USER_ROLES.USER;
-					this.store.dispatch(logUser(email, role));
+					this.store.dispatch(logUser(uid, email, role));
 					this.router.current.history.push(ROUTES.SECRET);
 				});
 			} else {
