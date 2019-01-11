@@ -1,4 +1,6 @@
 TODO:
 
-- clean structure of components
-- remove unused elements
+- seperation of components like 'models' from ui components
+- add view: Buildings
+- add some buildings affecting production like sawmill or stone quarry
+- every minute add some production to resources

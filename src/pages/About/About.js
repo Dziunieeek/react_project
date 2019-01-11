@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import CSSModules from 'react-css-modules';
-import styles from "./About.scss";
+import styles from "./sass/About.scss";
 
 class About extends Component {
 
