@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 
 import {setResources, setProduction} from '../../actions';
 
-import * as Resources from '../../components/Resources/Resources';
-import * as Production from '../../components/Production/Production';
+import * as Resources from '../../library/models/Resources/Resources';
+import * as Production from '../../library/models/Production/Production';
 
 import CSSModules from 'react-css-modules';
 import styles from "./sass/Secret.scss";

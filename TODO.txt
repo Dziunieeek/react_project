@@ -1,6 +1,9 @@
 TODO:
 
-- seperation of components like 'models' from ui components
 - add view: Buildings
 - add some buildings affecting production like sawmill or stone quarry
 - every minute add some production to resources
+- hide navbar links for logged users
+- add scrollbar into view, not to body
+- add possibility to create building from admin panel
+- clean up

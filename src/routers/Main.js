@@ -9,6 +9,7 @@ import {Provider} from 'react-redux';
 import Home from "../pages/Home/Home.js";
 import About from "../pages/About/About.js";
 import Secret from "../pages/Secret/Secret.js";
+import Buildings from "../pages/Buildings/Buildings.js";
 import AdminPanel from "../pages/AdminPanel/AdminPanel.js";
 
 import NavBar from "../components/NavBar/NavBar.js";
@@ -78,6 +79,11 @@ class Main extends Component {
                                 render={() => (!this.store.getState().user.email
                                 ? (<Redirect to={ROUTES.HOME}/>)
                                 : (<Secret/>))}/>
+                            <Route
+                                path={ROUTES.BUILDINGS}
+                                render={() => (!this.store.getState().user.email
+                                ? (<Redirect to={ROUTES.HOME}/>)
+                                : (<Buildings/>))}/>
                             <Route
                                 path={ROUTES.ADMIN_PANEL}
                                 render={() => (this.store.getState().user.role !== USER_ROLES.ADMIN

@@ -32,21 +32,30 @@ class NavBar extends Component {
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="title" styleName="title" color="inherit">My React App</Typography>
-                        <IconButton>
-                            <Tooltip title="Home">
-                                <Link to={ROUTES.HOME}>
-                                    <Icon styleName="icon">home</Icon>
-                                </Link>
-                            </Tooltip>
-                        </IconButton>
 
-                        <IconButton>
-                            <Tooltip title="About">
-                                <Link to={ROUTES.ABOUT}>
-                                    <Icon styleName="icon">info</Icon>
-                                </Link>
-                            </Tooltip>
-                        </IconButton>
+                        {(!this.props.user.email)
+                            ? (
+                                <IconButton>
+                                    <Tooltip title="Home">
+                                        <Link to={ROUTES.HOME}>
+                                            <Icon styleName="icon">home</Icon>
+                                        </Link>
+                                    </Tooltip>
+                                </IconButton>
+                            )
+                            : ''}
+
+                        {(!this.props.user.email)
+                            ? (
+                                <IconButton>
+                                    <Tooltip title="About">
+                                        <Link to={ROUTES.ABOUT}>
+                                            <Icon styleName="icon">info</Icon>
+                                        </Link>
+                                    </Tooltip>
+                                </IconButton>
+                            )
+                            : ''}
 
                         {(this.props.user.email)
                             ? (
@@ -54,6 +63,18 @@ class NavBar extends Component {
                                     <Tooltip title="Secret">
                                         <Link to={ROUTES.SECRET}>
                                             <Icon styleName="icon">security</Icon>
+                                        </Link>
+                                    </Tooltip>
+                                </IconButton>
+                            )
+                            : ''}
+
+                        {(this.props.user.email)
+                            ? (
+                                <IconButton>
+                                    <Tooltip title="Buildings">
+                                        <Link to={ROUTES.BUILDINGS}>
+                                            <Icon styleName="icon">home</Icon>
                                         </Link>
                                     </Tooltip>
                                 </IconButton>

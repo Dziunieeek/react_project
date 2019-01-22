@@ -1,0 +1,33 @@
+.container {
+	padding: 1.5rem 0;
+
+	.image {
+		border: 1px solid black;
+
+		.icon {
+			color: black;
+			margin: 0 0.5rem;
+			font-size: 150px !important;
+		}
+	}
+
+	.name {
+		border: 1px solid black;
+	}
+
+	.description {
+		border: 1px solid black;
+	}
+
+	.cost {
+		border: 1px solid black;
+	}
+
+	.profit {
+		border: 1px solid black;
+	}
+
+	.actions {
+		border: 1px solid black;
+	}
+}

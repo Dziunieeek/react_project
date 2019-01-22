@@ -8,8 +8,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 
-import * as Resources from "../Resources/Resources.js";
-import * as Production from "../Production/Production.js";
+import * as Resources from "../../library/models/Resources/Resources.js";
+import * as Production from "../../library/models/Production/Production.js";
 
 import CSSModules from 'react-css-modules';
 import styles from "./sass/Register.scss";

@@ -1,5 +1,5 @@
-import {firebaseDB} from '../../firebase';
-import {PRODUCTION_ON_START} from '../../constants/constants.js';
+import {firebaseDB} from '../../../firebase';
+import {PRODUCTION_ON_START} from '../../../constants/constants.js';
 
 const ref = '/production/';
 const types = ['wood', 'iron', 'stone', 'food'];
